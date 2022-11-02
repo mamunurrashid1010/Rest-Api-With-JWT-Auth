@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api',['except'=>['login','register']]);
+        $this->middleware('auth:api',['except'=>['login','register','profile']]);
     }
 
     /*
@@ -87,5 +87,12 @@ class AuthController extends Controller
             'token_type'  => 'bearer',
             'user'        => Auth::user(),
         ]);
+    }
+
+    /*
+     * profile
+     */
+    public function profile(){
+        return response()->json(Auth::user());
     }
 }
