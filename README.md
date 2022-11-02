@@ -74,3 +74,40 @@ password :  12345
     }
 }
 ```
+
+##### GET: Profile Details
+```
+http://127.0.0.1:8000/api/auth/profile
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Response samples
+```
+{
+    "id": 1,
+    "name": "Mamunur Rashid",
+    "email": "mamun@gmail.com",
+    "email_verified_at": null,
+    "created_at": "2022-11-02T04:05:24.000000Z",
+    "updated_at": "2022-11-02T04:05:24.000000Z"
+}
+```
+
+##### POST: Logout
+```
+http://127.0.0.1:8000/api/auth/logout
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Response samples
+```
+{
+    "message": "User logged out"
+}
+```
