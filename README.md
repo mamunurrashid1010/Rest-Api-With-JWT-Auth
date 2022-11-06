@@ -111,3 +111,54 @@ Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
     "message": "User logged out"
 }
 ```
+
+### Department Module<hr>
+
+##### POST: Insert Department Info
+```
+http://127.0.0.1:8000/api/department/store
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Request Body:form-data
+```
+name     :  Accounts
+```
+###### Response samples
+```
+{
+    "message": "Department added successfully"
+}
+```
+
+##### GET: All Department List
+```
+http://127.0.0.1:8000/api/department/getDepartmentList
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Response samples
+```
+{
+    "departments": [
+        {
+            "id": 1,
+            "name": "Software Dev"
+        },
+        {
+            "id": 3,
+            "name": "HR"
+        },
+        {
+            "id": 4,
+            "name": "Marketing"
+        }
+    ]
+}
+```
