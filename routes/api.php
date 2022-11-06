@@ -31,4 +31,5 @@ Route::group(['middleware'=>'api','prefix'=>'auth'],function ($router){
 # departments
 Route::group(['middleware'=>'api','prefix'=>'department'],function ($router){
     Route::post('/store',[DepartmentsController::class,'store']);
+    Route::get('/getDepartmentList',[DepartmentsController::class,'getDepartmentList']);
 });
