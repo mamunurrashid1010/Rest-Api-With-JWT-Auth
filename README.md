@@ -1,5 +1,16 @@
 # Rest-Api-With-JWT-Auth
- This is a simple rest api development project. In this project here i developed rest api using laravel and jwt use for authentication.
+ This is a simple rest api development project. In this project here i developed & show that how to make rest api using laravel 8 and jwt use for authentication.
+
+### Module Overview <hr>
+* Registration
+* Login
+* Profile
+* Logout
+* Department
+    * Add new department
+    * All department Details
+    * Individual department Details
+
 
 ## How to Install and Run the Project
 
@@ -160,5 +171,24 @@ Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
             "name": "Marketing"
         }
     ]
+}
+```
+
+##### GET: Department Details
+```
+http://127.0.0.1:8000/api/department/details/2
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Response samples
+```
+{
+    "department": {
+        "id": 2,
+        "name": "Accounts"
+    }
 }
 ```
