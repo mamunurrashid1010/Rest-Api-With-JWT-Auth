@@ -53,4 +53,20 @@ class DepartmentsController extends Controller
         $departments=Departments::select('id','name')->where('user_id',$user_id)->get();
         return response()->json(['departments'=>$departments],200);
     }
+
+    /**
+     * details function
+     * @param $request $department_id;
+     * @return Json array;
+     */
+    public function details(Request $request){
+        # authorization checked
+        if(!Auth::user()){
+            return response()->json(['error'=>'Unauthorized',401]);
+        }
+        $user_id = Auth::user()->id;
+        # get department details
+        $department = Departments::select('id','name')->where('user_id',$user_id)->find($request->department_id);
+        return response()->json(['department'=>$department],200);
+    }
 }
