@@ -85,4 +85,42 @@ class DepartmentsController extends Controller
         $department = Departments::select('id','name')->where('user_id',$user_id)->find($request->department_id);
         return response()->json(['department'=>$department],200);
     }
+
+    /**
+     * update function
+     * @param $request $edit_id, $name;
+     * @return Json array;
+     */
+    public function update(Request $request){
+        $data =  $request->all();
+        $rule=[
+            'edit_id'   => 'required',
+            'name'      => 'required',
+        ];
+        $customMessage=[
+            'edit_id.required'  => 'Edit id required.',
+            'name.required'     => 'Department Name is required.',
+        ];
+        $validation=Validator::make($data,$rule,$customMessage);
+        if($validation->fails()){
+            return response()->json($validation->errors(),422);
+        }
+
+        # authorization checked
+        if(!Auth::user()){
+            return response()->json(['error'=>'Unauthorized',401]);
+        }
+        $user_id = Auth::user()->id;
+        $edit_id = $request->edit_id;
+        $department = Departments::where('id',$edit_id)->where('user_id',$user_id)->count();
+        if($department){
+            $result=Departments::where('id',$edit_id)->update(['name'=>$data['name'], 'updated_at'=>Carbon::now()]);
+            if($result)
+                return response()->json(['message'=>'Updated Successfully.'],202);
+            else
+                return response()->json(['message'=>'Fail.'],422);
+        }
+        else
+            return response()->json(['message'=>'Department not found.'],404);
+    }
 }
