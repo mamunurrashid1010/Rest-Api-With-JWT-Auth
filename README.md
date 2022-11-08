@@ -192,3 +192,43 @@ Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
     }
 }
 ```
+
+##### GET: Edit 
+```
+http://127.0.0.1:8000/api/department/edit/2
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Response samples
+```
+{
+    "department": {
+        "id": 2,
+        "name": "Accounts"
+    }
+}
+```
+
+##### POST: Update Department Info
+```
+http://127.0.0.1:8000/api/department/update
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Request Body:form-data
+```
+edit_id  :  2
+name     :  HRMS
+```
+###### Response samples
+```
+{
+    "message": "Updated Successfully."
+}
+```
