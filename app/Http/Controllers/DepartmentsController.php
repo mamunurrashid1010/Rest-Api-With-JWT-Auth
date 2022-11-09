@@ -123,4 +123,27 @@ class DepartmentsController extends Controller
         else
             return response()->json(['message'=>'Department not found.'],404);
     }
+
+    /**
+     * delete function
+     * @param $request $department_id;
+     * @return Json;
+     */
+    public function delete(Request $request){
+        # authorization checked
+        if(!Auth::user()){
+            return response()->json(['error'=>'Unauthorized',401]);
+        }
+
+        $user_id = Auth::user()->id;
+        $result = Departments::where('user_id',$user_id)->findOrFail($request->department_id)->delete();
+        if($result){
+            $message="Delete Successfully";
+            return response()->json(['message'=>$message],200);
+        }
+        else{
+            $message="Fail";
+            return response()->json(['message'=>$message],422);
+        }
+    }
 }
