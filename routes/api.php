@@ -35,4 +35,5 @@ Route::group(['middleware'=>'api','prefix'=>'department'],function ($router){
     Route::get('/details/{department_id}',[DepartmentsController::class,'details']);
     Route::get('/edit/{department_id}',[DepartmentsController::class,'edit']);
     Route::post('/update',[DepartmentsController::class,'update']);
+    Route::post('/delete/{department_id}',[DepartmentsController::class,'delete']);
 });
