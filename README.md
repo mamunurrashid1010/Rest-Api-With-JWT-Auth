@@ -232,3 +232,19 @@ name     :  HRMS
     "message": "Updated Successfully."
 }
 ```
+
+##### POST: Delete Department
+```
+http://127.0.0.1:8000/api/department/delete/5
+```
+###### Request Authorization 
+```
+Type    : Bearer Token
+Token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9....
+```
+###### Response samples
+```
+{
+    "message": "Delete Successfully"
+}
+```
