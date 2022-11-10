@@ -10,6 +10,8 @@
     * Add new department
     * All department Details
     * Individual department Details
+    * Department edit & update
+    * Department delete
 
 
 ## How to Install and Run the Project
